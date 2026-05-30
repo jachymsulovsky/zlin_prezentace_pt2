@@ -271,14 +271,16 @@
     <script>
         let currentSlide = 1;
         const totalSlides = document.querySelectorAll('.slide').length;
+        const presentation = document.querySelector('.presentation');
         document.getElementById('totalSlides').textContent = totalSlides;
 
-        function showSlide(n) {
+        function showSlide(n, direction = 1) {
             const slides = document.querySelectorAll('.slide');
             
             if (n > totalSlides) currentSlide = totalSlides;
             if (n < 1) currentSlide = 1;
             
+            presentation.classList.toggle('is-going-back', direction < 0);
             slides.forEach(slide => slide.classList.remove('active'));
             slides[currentSlide - 1].classList.add('active');
             
@@ -289,7 +291,7 @@
 
         function changeSlide(n) {
             currentSlide += n;
-            showSlide(currentSlide);
+            showSlide(currentSlide, n);
         }
 
         // Klávesové ovládání
