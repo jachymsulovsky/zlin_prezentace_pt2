@@ -4,9 +4,25 @@
     box-sizing: border-box;
 }
 
+:root {
+    --paper: #F2E8D5;
+    --paper-light: #FBF4E7;
+    --ink: #3A2E25;
+    --accent: #C96A2B;
+    --accent-dark: #A95222;
+    --muted: #7A6A58;
+    --line: rgba(58, 46, 37, 0.22);
+    --shadow: rgba(58, 46, 37, 0.22);
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    color: var(--ink);
+    background:
+        linear-gradient(rgba(58, 46, 37, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(58, 46, 37, 0.03) 1px, transparent 1px),
+        var(--paper);
+    background-size: 24px 24px, 24px 24px, auto;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -17,9 +33,10 @@ body {
 .presentation {
     width: 100%;
     max-width: 1200px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    background: var(--paper-light);
+    border: 2px solid var(--ink);
+    border-radius: 6px;
+    box-shadow: 12px 12px 0 var(--shadow);
     overflow: hidden;
 }
 
@@ -28,6 +45,10 @@ body {
     min-height: 600px;
     padding: 50px 60px;
     animation: fadeIn 0.8s ease-in;
+    background:
+        radial-gradient(circle at 20% 15%, rgba(201, 106, 43, 0.08), transparent 28%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.36), rgba(242, 232, 213, 0.3)),
+        var(--paper-light);
 }
 
 .slide.active {
@@ -41,10 +62,14 @@ body {
     to { opacity: 1; }
 }
 
-/* Slide 1 - Titulní */
+/* Slide 1 - titulni */
 .slide-title {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    color: white;
+    background:
+        linear-gradient(rgba(58, 46, 37, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(58, 46, 37, 0.07) 1px, transparent 1px),
+        var(--accent);
+    background-size: 28px 28px, 28px 28px, auto;
+    color: var(--paper-light);
     text-align: center;
     justify-content: center;
 }
@@ -52,32 +77,35 @@ body {
 .slide-title h1 {
     font-size: 3.5em;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0;
+    text-shadow: 3px 3px 0 rgba(58, 46, 37, 0.35);
 }
 
 .slide-title p {
     font-size: 1.3em;
+    color: var(--paper);
     opacity: 0.95;
 }
 
 /* Slide obsahu */
 .slide-content h2 {
-    color: #2a5298;
+    color: var(--accent);
     font-size: 2.2em;
     margin-bottom: 30px;
-    border-bottom: 3px solid #2a5298;
+    border-bottom: 3px double var(--accent);
     padding-bottom: 15px;
 }
 
-/* Obrázky */
+/* Obrazky */
 .slide-image {
     width: 100%;
     height: auto;
     max-height: 350px;
     object-fit: contain;
-    border-radius: 8px;
+    border-radius: 4px;
     margin: 20px 0;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--ink);
+    box-shadow: 6px 6px 0 rgba(122, 106, 88, 0.28);
 }
 
 .image-grid {
@@ -91,8 +119,9 @@ body {
     width: 100%;
     height: 250px;
     object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    border: 2px solid var(--ink);
+    box-shadow: 6px 6px 0 rgba(122, 106, 88, 0.28);
 }
 
 /* Info grid */
@@ -104,42 +133,44 @@ body {
 }
 
 .info-item {
-    background: #f8f9fa;
+    background: rgba(242, 232, 213, 0.72);
     padding: 25px;
-    border-radius: 8px;
-    border-left: 5px solid #2a5298;
+    border-radius: 4px;
+    border: 1px solid var(--line);
+    border-left: 7px solid var(--accent);
 }
 
 .info-item h3 {
-    color: #2a5298;
+    color: var(--accent);
     margin-bottom: 12px;
     font-size: 1.2em;
 }
 
 .info-item p {
-    color: #333;
+    color: var(--ink);
     line-height: 1.6;
     font-size: 0.95em;
 }
 
 /* Content box */
 .content-box {
-    background: #f8f9fa;
+    background: rgba(242, 232, 213, 0.72);
     padding: 25px;
-    border-radius: 8px;
+    border-radius: 4px;
     margin: 20px 0;
-    border-left: 5px solid #2a5298;
+    border: 1px solid var(--line);
+    border-left: 7px solid var(--accent);
     line-height: 1.7;
 }
 
 .content-box h3 {
-    color: #2a5298;
+    color: var(--accent);
     margin-bottom: 12px;
     font-size: 1.2em;
 }
 
 .content-box p {
-    color: #444;
+    color: var(--ink);
     font-size: 0.95em;
 }
 
@@ -152,21 +183,22 @@ body {
 }
 
 .geography-item {
-    background: #f8f9fa;
+    background: rgba(242, 232, 213, 0.72);
     padding: 20px;
-    border-radius: 8px;
-    border-left: 5px solid #2a5298;
+    border-radius: 4px;
+    border: 1px solid var(--line);
+    border-left: 7px solid var(--accent);
 }
 
 .geography-item h4 {
-    color: #2a5298;
+    color: var(--accent);
     margin-bottom: 12px;
     font-size: 1.1em;
 }
 
 .geography-item ul {
     list-style: none;
-    color: #555;
+    color: var(--muted);
 }
 
 .geography-item li {
@@ -177,14 +209,14 @@ body {
 }
 
 .geography-item li:before {
-    content: "•";
+    content: "\2022";
     position: absolute;
     left: 0;
-    color: #2a5298;
+    color: var(--accent);
     font-weight: bold;
 }
 
-/* Průmysl grid */
+/* Prumysl grid */
 .industry-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -193,20 +225,21 @@ body {
 }
 
 .industry-card {
-    background: white;
-    border: 2px solid #2a5298;
+    background: rgba(251, 244, 231, 0.92);
+    border: 2px solid var(--accent);
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 4px;
+    box-shadow: 4px 4px 0 rgba(122, 106, 88, 0.18);
 }
 
 .industry-card h4 {
-    color: #2a5298;
+    color: var(--accent);
     margin-bottom: 12px;
     font-size: 1.1em;
 }
 
 .industry-card p {
-    color: #555;
+    color: var(--muted);
     font-size: 0.95em;
     line-height: 1.6;
 }
@@ -224,25 +257,27 @@ body {
     width: 100%;
     height: 300px;
     object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    border: 2px solid var(--ink);
+    box-shadow: 6px 6px 0 rgba(122, 106, 88, 0.28);
 }
 
 .berani-content {
-    background: #f8f9fa;
+    background: rgba(242, 232, 213, 0.72);
     padding: 25px;
-    border-radius: 8px;
-    border-left: 5px solid #d32f2f;
+    border-radius: 4px;
+    border: 1px solid var(--line);
+    border-left: 7px solid var(--accent);
 }
 
 .berani-content h3 {
-    color: #d32f2f;
+    color: var(--accent);
     margin-bottom: 15px;
     font-size: 1.2em;
 }
 
 .berani-content p {
-    color: #444;
+    color: var(--ink);
     line-height: 1.7;
     margin-bottom: 12px;
     font-size: 0.95em;
@@ -250,7 +285,7 @@ body {
 
 .berani-content ul {
     list-style: none;
-    color: #555;
+    color: var(--muted);
     margin-top: 15px;
 }
 
@@ -262,9 +297,11 @@ body {
 }
 
 .berani-content li:before {
-    content: "🏒";
+    content: "\2022";
     position: absolute;
     left: 0;
+    color: var(--accent);
+    font-weight: bold;
 }
 
 /* Atraktivity */
@@ -276,35 +313,41 @@ body {
 }
 
 .attraction-card {
-    background: white;
-    border-radius: 8px;
+    background: rgba(251, 244, 231, 0.95);
+    border: 1px solid var(--line);
+    border-radius: 4px;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 5px 0 rgba(122, 106, 88, 0.2);
 }
 
 .attraction-card img {
     width: 100%;
     height: 180px;
     object-fit: cover;
+    border-bottom: 2px solid var(--accent);
 }
 
 .attraction-card-body {
     padding: 18px;
-    color: #555;
+    color: var(--muted);
     font-size: 0.9em;
     line-height: 1.6;
 }
 
 .attraction-card-body h4 {
-    color: #2a5298;
+    color: var(--accent);
     margin-bottom: 10px;
     font-size: 1.05em;
 }
 
-/* Závěr */
+/* Zaver */
 .slide-conclusion {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    color: white;
+    background:
+        linear-gradient(rgba(58, 46, 37, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(58, 46, 37, 0.07) 1px, transparent 1px),
+        var(--accent);
+    background-size: 28px 28px, 28px 28px, auto;
+    color: var(--paper-light);
     text-align: center;
     justify-content: center;
 }
@@ -312,7 +355,7 @@ body {
 .slide-conclusion h2 {
     font-size: 2.5em;
     margin-bottom: 30px;
-    border-bottom: 3px solid white;
+    border-bottom: 3px double var(--paper-light);
     padding-bottom: 20px;
 }
 
@@ -329,32 +372,36 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px 60px;
-    background: #f5f5f5;
-    border-top: 1px solid #ddd;
+    background: var(--paper);
+    border-top: 2px solid var(--ink);
 }
 
 button {
-    background: #2a5298;
-    color: white;
-    border: none;
+    background: var(--accent);
+    color: var(--paper-light);
+    border: 2px solid var(--ink);
     padding: 10px 25px;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
+    font-family: inherit;
     font-size: 0.95em;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
-    background: #1e3c72;
+    background: var(--accent-dark);
+    transform: translateY(-1px);
 }
 
 button:disabled {
-    background: #ccc;
+    background: #B8AA96;
+    color: var(--muted);
     cursor: not-allowed;
+    transform: none;
 }
 
 .slide-number {
-    color: #2a5298;
+    color: var(--accent);
     font-weight: bold;
     font-size: 1em;
 }
@@ -394,15 +441,16 @@ button:disabled {
 table {
     width: 100%;
     border-collapse: collapse;
-    background: white;
-    border-radius: 8px;
+    background: var(--paper-light);
+    border-radius: 4px;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--line);
+    box-shadow: 5px 5px 0 rgba(122, 106, 88, 0.2);
 }
 
 table th {
-    background: #2a5298;
-    color: white;
+    background: var(--accent);
+    color: var(--paper-light);
     padding: 15px;
     text-align: left;
     font-weight: 600;
@@ -410,16 +458,18 @@ table th {
 
 table td {
     padding: 12px 15px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
 }
 
 table tr:hover {
-    background: #f8f9fa;
+    background: rgba(201, 106, 43, 0.09);
 }
 
-/* Zdůraznění */
+/* Zdurazneni */
 .highlight {
-    background: #fff3cd;
+    background: rgba(201, 106, 43, 0.16);
+    color: var(--ink);
     padding: 2px 6px;
     border-radius: 3px;
     font-weight: 500;
